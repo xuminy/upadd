@@ -1,0 +1,91 @@
+<!-- <html>
+    <head>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?4bad1df23f079e0d12bdbef5e65b072f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+            })();
+            window.location = 'https://ecomfe.github.io/zrender-doc/public/';
+        </script>
+    </head>
+</html> -->
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+     <meta charset="UTF-8">
+     <title>Echarts图表</title>
+     <script src="./echarts.min.js"></script>
+  </head>
+  <body>
+          <div id="main" style="width:600px;height:400px;"></div>
+ </body>
+ </html>
+ <script>
+ var myChart = echarts.init(document.getElementById('main'));
+var option = {
+    color:['#A3E9A5', '#F5B26C', '#54BBAB',],
+    title: {
+        text: '做题数',
+        subtext: '',
+        x:'center',
+        y:'center',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        top:'middle',
+        right: 20,
+        data: ['考点专练','套卷练习','仿真模考']
+    },
+    graphic:{
+        type:"text",
+        left:'center',
+        top:170,
+        z:2,
+        zlevel:100,
+        style:{
+            text:'0',
+            fontSize: '20',
+            fontWeight: 'bold',
+        }
+    },
+    series: [
+        {
+            type: 'pie',
+            name:'访问来源',
+            radius: ['30%', '70%'],
+            center: ['50%', '50%'],
+            selectedMode: 'single',
+            data: [
+                {
+                    value:200,
+                    name: '考点专练',
+                },  
+                {value: 200, name: '套卷练习'},
+                {value: 200, name: '仿真模考'},
+            ],
+            label: {
+                show: false,
+                position: 'inner',
+            },
+            emphasis: {
+                show:false,
+                label: {
+                    // show: true,
+                    fontSize: '30',
+                    fontWeight: 'bold',
+                },
+            },
+        }
+    ]
+};
+
+     myChart.setOption(option)
+ </script>
